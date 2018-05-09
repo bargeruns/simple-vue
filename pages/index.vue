@@ -21,17 +21,21 @@
 import * as client from '../plugins/contentful';
 
 export default {
-  data() {
-    return {
-      posts: []
-    }
+  async asyncData({ params }) {
+    return client.getEntries({
+      content_type: 'post',
+      order: '-sys.createdAt',
+    })
+    .then(entries => {
+      return { posts: entries.items }
+    })
+    .catch(err => console.log(err));
   },
 
-  mounted() {
-    client.getEntries({
-      content_type: 'post'
-    })
-    .then(entries => this.$set(this, 'posts', entries.items))
+  head() {
+    return {
+      title: 'Latest Posts'
+    }
   }
 }
 </script>

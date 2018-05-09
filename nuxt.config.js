@@ -1,4 +1,5 @@
 require('dotenv').config();
+const client = require('./plugins/contentful');
 
 module.exports = {
   /*
@@ -40,5 +41,20 @@ module.exports = {
   },
 
   plugins: ['./plugins/contentful.js'],
-  modules: ['@nuxtjs/dotenv']
+  modules: ['@nuxtjs/dotenv', '@nuxtjs/markdownit'],
+
+  markdownit: {
+    injected: true
+  },
+
+  generate: {
+    routes() {
+      return client.getEntries({ 'content_type': 'post' })
+      .then(entries => {
+        return entries.items.map(entry => {
+          return { route: entry.fields.slug, payload: entry }
+        });
+      });
+    }
+  }
 }
