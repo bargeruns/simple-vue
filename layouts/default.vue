@@ -10,11 +10,33 @@
       </div>
     </section>
     <nuxt/>
+    
+    <section class="section is-marginless footer-section">
+      <footer class="footer">
+        <div class="container">
+          <p>
+            <strong>SimpleVue</strong> by <a href="https://seanbrage.com">Sean Brage</a>
+            <br/>
+            <strong>&#169;</strong>Sean Brage and Simple-Vue.com, 2018
+          </p>
+          <hr>
+        </div>
+      </footer>
+    </section>
   </div>
 </template>
 
 <script>
+
 export default {
+  head() {
+    return {
+      title: 'SimpleVue',
+      meta: [
+       { hid: 'description', name: 'description', content: 'Tips and Tricks for VueJS Developers' } 
+      ]
+    }
+  }
 
 }
 </script>
@@ -36,6 +58,11 @@ img.logo {
   width: 36px;
   margin-bottom: -6px;
   display: inline-block
+}
+
+section.footer-section {
+  padding: 3em 0 0 0;
+  width: 100vw;
 }
 
 

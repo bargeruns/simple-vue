@@ -15,6 +15,7 @@
         </div>
       </div>
     </div>
+    
   </section>
 </template>
 
@@ -42,7 +43,7 @@ export default {
 
   head() {
     return {
-      title: 'Latest Posts'
+      title: 'SimpleVue'
     }
   }
 }
