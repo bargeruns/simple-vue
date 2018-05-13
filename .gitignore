@@ -3,6 +3,7 @@ node_modules
 
 # logs
 npm-debug.log
+npm-debug.log.*
 
 # Nuxt build
 .nuxt
@@ -10,3 +11,5 @@ npm-debug.log
 # Nuxt generate
 dist
 .env
+
+.firebaserc

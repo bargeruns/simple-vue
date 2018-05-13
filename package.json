@@ -17,6 +17,7 @@
     "@nuxtjs/markdownit": "^1.2.1",
     "bulma": "^0.7.1",
     "contentful": "^6.1.0",
+    "moment": "^2.22.1",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {

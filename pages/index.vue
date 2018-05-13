@@ -9,6 +9,7 @@
           <div class="content" v-for="post in posts" :key="post.slug">
             <nuxt-link :to="post.fields.slug"><h2 class="title is-4"> {{ post.fields.title }}</h2></nuxt-link>
             <p class="content"> {{ post.fields.excerpt }} </p>
+            <p> Posted on {{ prettyDate(post.fields.publishedAt) }}</p>
             <nuxt-link :to="post.fields.slug">More...</nuxt-link>
           </div>
         </div>
@@ -18,6 +19,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 import * as client from '../plugins/contentful';
 
 export default {
@@ -30,6 +32,12 @@ export default {
       return { posts: entries.items }
     })
     .catch(err => console.log(err));
+  },
+
+  methods: {
+    prettyDate(date) {
+      return moment(date).format('MM/DD/YYYY');
+    }
   },
 
   head() {
