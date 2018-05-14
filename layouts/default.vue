@@ -6,7 +6,16 @@
           <nuxt-link to="/">
           <h1 class="title"><img src="/logo.png" alt="vuejs logo" class="logo">SimpleVue</h1></nuxt-link>
           <h2 class="subtitle">Tips and Tricks for VueJS Developers</h2>
+          <ul class="nav-links">
+            <li>
+              <nuxt-link to="/" :class="{ selected: currentRoute === '/' }">Articles</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/about" :class="{ selected: currentRoute === '/about' }">About</nuxt-link>
+            </li>
+          </ul>
         </div>
+          
       </div>
     </section>
     <nuxt/>
@@ -35,6 +44,12 @@ export default {
       meta: [
        { hid: 'description', name: 'description', content: 'Tips and Tricks for VueJS Developers' } 
       ]
+    }
+  },
+
+  computed: {
+    currentRoute() {
+      return this.$route.path;
     }
   }
 
@@ -65,5 +80,22 @@ section.footer-section {
   width: 100vw;
 }
 
+ul.nav-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  margin-top: 14px;
+  margin-bottom: 0;
+}
+
+ul.nav-links li {
+  margin-right: 14px;
+  font-size: 1.65em;
+}
+
+ul.nav-links li a.selected {
+  text-decoration: underline;
+}
 
 </style>
