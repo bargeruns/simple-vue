@@ -11,15 +11,22 @@
           <hr>
           <div class="content" v-html="$md.render(page.fields.content)"></div>
         </div>
+        <about-bio />
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import client from '../plugins/contentful';
+import client from '~/plugins/contentful';
+import AboutBio from '~/components/AboutBio';
 
 export default {
+
+  components: {
+    AboutBio
+  },
+
   async asyncData({ params, error, payload }) {
     if (payload) return { page: payload };
 
