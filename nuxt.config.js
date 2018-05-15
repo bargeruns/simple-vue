@@ -14,8 +14,9 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
-      { rel: 'stylesheet', href: '/bulma.min.css' },
-      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' }
+      { rel: 'stylesheet', href: '/css/bulma.min.css' },
+      { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' },
+      { rel: 'stylesheet', href: '/css/solarized-dark.css' }
     ]
   },
   /*
@@ -41,7 +42,7 @@ module.exports = {
     }
   },
 
-  plugins: ['./plugins/contentful.js'],
+  plugins: ['./plugins/contentful.js', '~/plugins/directives.js'],
   modules: ['@nuxtjs/dotenv', '@nuxtjs/markdownit'],
   components: ['./components/AppBio.vue'],
 
