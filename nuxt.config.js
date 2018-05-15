@@ -13,7 +13,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: 'Tips and Tricks for VueJS Developers' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: '/css/bulma.min.css' },
       { rel: 'stylesheet', href: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css' },
       { rel: 'stylesheet', href: '/css/solarized-dark.css' }
