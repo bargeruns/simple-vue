@@ -11,6 +11,9 @@
           <hr>
           <div class="content" v-highlight v-html="$md.render(post.fields.content)">
           </div>
+          <div class="comments">
+            <vue-disqus :shortname="disqusShortname" :identifier="post.fields.slug" :url="url"/>
+          </div>
         </div>
       </div>
     </div>
@@ -26,6 +29,14 @@ export default {
 
     let entries = await client.getEntries({ content_type: 'post', 'fields.slug': params.slug });
     return { post: entries.items[0] };
+  },
+
+  computed: {
+    url() {
+      return `https://www.simple-vue.com/${this.post.fields.slug}`;
+    },
+
+    disqusShortname: () => process.env.DISQUS_SN
   },
 
   head() {

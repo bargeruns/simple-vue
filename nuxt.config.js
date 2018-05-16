@@ -5,6 +5,10 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  env: {
+    DISQUS_SN: process.env.NODE_ENV === 'develop' ? process.env.DISQUS_SANDBOX_SHORTNAME : process.env.DISQUS_SHORTNAME
+  },
+
   head: {
     title: 'simple-vue',
     meta: [
@@ -42,8 +46,15 @@ module.exports = {
     }
   },
 
-  plugins: ['./plugins/contentful.js', '~/plugins/directives.js'],
+  plugins: [
+    '~/plugins/contentful.js',
+    '~/plugins/directives.js',
+    '~/plugins/disqus.js'
+  ],
+
   modules: ['@nuxtjs/dotenv', '@nuxtjs/markdownit'],
+  
+
   components: ['./components/AppBio.vue'],
 
   markdownit: {
