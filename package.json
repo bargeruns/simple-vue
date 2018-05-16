@@ -5,7 +5,7 @@
   "author": "Sean Brage <seanmbrage@me.com>",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "NODE_ENV=develop nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -19,7 +19,8 @@
     "contentful": "^6.1.0",
     "highlight.js": "^9.12.0",
     "moment": "^2.22.1",
-    "nuxt": "^1.0.0"
+    "nuxt": "^1.0.0",
+    "vue-disqus": "^3.0.3"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
