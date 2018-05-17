@@ -3,26 +3,21 @@
     <div class="container">
       <h1 class="title is-2">Latest Posts</h1>
       <hr>
-      <div class="columns">
-        <div class="column is-6">
-          <div class="content" v-for="post in posts" :key="post.slug">
-            <nuxt-link :to="post.fields.slug"><h2 class="title is-4"> {{ post.fields.title }}</h2></nuxt-link>
-            <p class="content"> {{ post.fields.excerpt }} </p>
-            <p> Posted on {{ prettyDate(post.fields.publishedAt) }}</p>
-            <nuxt-link :to="post.fields.slug">Read More...</nuxt-link>
-          </div>
-        </div>
-      </div>
+      <post-excerpt v-for="post in posts" :post="post" :key="post.fields.slug"></post-excerpt>    
     </div>
-    
   </section>
 </template>
 
 <script>
 import moment from 'moment';
 import * as client from '../plugins/contentful';
+import PostExcerpt from '~/components/PostExcerpt.vue';
 
 export default {
+  components: {
+    PostExcerpt
+  },
+
   async asyncData({ params }) {
     return client.getEntries({
       content_type: 'post',
