@@ -1,16 +1,15 @@
 <template>
   <section class="section">
     <div class="container">
+      <h1 class="title is-2">Latest Posts</h1>
+      <hr>
       <div class="columns">
-        <div class="column is-offset-2 is-8">
-          <h1 class="title is-2">Latest Posts</h1>
-          <hr>
-
+        <div class="column is-6">
           <div class="content" v-for="post in posts" :key="post.slug">
             <nuxt-link :to="post.fields.slug"><h2 class="title is-4"> {{ post.fields.title }}</h2></nuxt-link>
             <p class="content"> {{ post.fields.excerpt }} </p>
             <p> Posted on {{ prettyDate(post.fields.publishedAt) }}</p>
-            <nuxt-link :to="post.fields.slug">More...</nuxt-link>
+            <nuxt-link :to="post.fields.slug">Read More...</nuxt-link>
           </div>
         </div>
       </div>
