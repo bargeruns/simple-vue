@@ -61,6 +61,8 @@ module.exports = {
     injected: true
   },
 
+  mode: 'spa',
+
   generate: {
     routes() {
       return Promise.all([client.getEntries({ 'content_type': 'post' }), client.getEntries({ 'content_type': 'page' })])
